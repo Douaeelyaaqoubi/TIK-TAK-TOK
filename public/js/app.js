@@ -5,7 +5,7 @@ let squares = []
 let gameOver = false
 
 function done(num1, num2, num3) {
-    title2.innerHTML = `${squares[num1]} Wins!`
+    title2.innerHTML = `${squares[num1]} Wins! `
 
     document.getElementById("item" + num1).style.background = "green"
     document.getElementById("item" + num2).style.background = "green"
@@ -20,20 +20,22 @@ function done(num1, num2, num3) {
 
 function checkDraw() {
     for (let i = 1; i <= 9; i++) {
-        if (squares[i] == '') {
-            return false
-        }
+        if (squares[i] === '') return false
     }
+
     title2.innerHTML = "Draw"
+    gameOver = true
+
     setTimeout(() => {
         location.reload()
     }, 3000)
+
     return true
 }
 
 function winner() {
     for (let i = 1; i <= 9; i++) {
-        squares[i] = document.getElementById('item' + i).innerHTML
+        squares[i] = document.getElementById("item" + i).innerHTML
     }
 
     if (squares[1] && squares[1] == squares[2] && squares[2] == squares[3]) done(1,2,3)
@@ -42,6 +44,8 @@ function winner() {
     else if (squares[1] && squares[1] == squares[4] && squares[4] == squares[7]) done(1,4,7)
     else if (squares[2] && squares[2] == squares[5] && squares[5] == squares[8]) done(2,5,8)
     else if (squares[3] && squares[3] == squares[6] && squares[6] == squares[9]) done(3,6,9)
+    else if (squares[1] && squares[1] == squares[5] && squares[5] == squares[9]) done(1,5,9)
+    else if (squares[3] && squares[3] == squares[5] && squares[5] == squares[7]) done(3,5,7)
     else checkDraw()
 }
 
@@ -50,11 +54,15 @@ function game(id) {
 
     let el = document.getElementById(id)
 
-    if (el.innerHTML == '') {
+    if (el.innerHTML === '') {
         el.innerHTML = turn
-        turn = (turn == 'X') ? 'O' : 'X'
-        title2.innerHTML = turn
+
+        winner()   
+
+        if (gameOver) return
+
+        turn = (turn === 'X') ? 'O' : 'X'
         title.innerHTML = "Its turn of"
-        winner()
+        title2.innerHTML = turn
     }
 }
