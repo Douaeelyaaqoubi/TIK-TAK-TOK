@@ -1,0 +1,64 @@
+body{
+    background-color: rgb(233, 193, 210);
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+    height: 100vh;
+    margin: 0;
+}
+
+.game {
+    width: 39vw;       
+    justify-content: center;
+    align-items: center; 
+    font-weight: 500;
+    text-align: center;
+}
+
+.h1{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    width: 38vw;
+}
+
+.game h1{
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+    font-family: fantasy;
+    color: white;
+    font-size: 5vw;
+    margin: 0;
+    
+}
+
+.game span{ 
+    font-family: fantasy;
+    color: rgb(239, 62, 136);
+    font-size: 4vw;
+}
+
+
+.square{
+    background-color: rgb(223, 152, 181);
+    width: 150px;
+    height: 150px;
+    margin: 1%;
+    float: left;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    font-size: 50px;
+    font-family: fantasy;
+    color:  rgb(240, 40, 123);
+    box-shadow: 0 4px 6px rgba(155, 132, 132, 0.3);
+}
+
+
+
+.square:hover{
+    background-color: rgba(240, 116, 167, 0.812);
+    cursor: pointer;
+    color:  rgb(243, 6, 104);
+}
